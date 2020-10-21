@@ -1,67 +1,42 @@
-<div class="col-lg-4 col-md-6">
-    <div class="single-trainer-item">
-        <img src="img/trainer/trainer-1.jpg" alt="">
-        <div class="trainer-text">
-            <h5>Patrick Cortez</h5>
-            <span>Leader</span>
-            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                voluptatem.</p>
-            <div class="trainer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
+<?php
+include_once("class/DB.php");
+
+use classes\DB;
+
+$db = new DB("localhost", "root", "", "portalove", 3306);
+$coachItems = $db->getTrainers();
+?>
+<section class="trainer-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>EXPERT TRAINERS</h2>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="col-lg-4 col-md-6">
-    <div class="single-trainer-item">
-        <img src="img/trainer/trainer-2.jpg" alt="">
-        <div class="trainer-text">
-            <h5>Gregory Powers</h5>
-            <span>Gym coach</span>
-            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                voluptatem.</p>
-            <div class="trainer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
+        <div class="row">
+            <?php
+            foreach ($coachItems as $key => $coachItem) {
+            ?>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-trainer-item">
+                    <img src="<?php echo $coachItem['image']; ?>" alt="IMG not loaded">
+                    <h5><?php echo $coachItem['meno']; ?></h5>
+                    <span><?php echo $coachItem['povolanie']; ?></span>
+                    <p><?php echo $coachItem['popis']; ?></p>
+                    <div class="trainer-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                    </img>
+                </div>
             </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
-</div>
-<div class="col-lg-4 col-md-6">
-    <div class="single-trainer-item">
-        <img src="img/trainer/trainer-3.jpg" alt="">
-        <div class="trainer-text">
-            <h5>Walter Wagner</h5>
-            <span>Dance trainer</span>
-            <p>non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                voluptatem.</p>
-            <div class="trainer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-4 col-md-6">
-    <div class="single-trainer-item">
-        <img src="img/trainer/trainer-4.jpg" alt="">
-        <div class="trainer-text">
-            <h5>Lukas Puchovsky</h5>
-            <span>Gym coach</span>
-            <p>Nejaky textik by tu mal byt o mojich skusenostiach a vsetkych kurzoch ktore mam. :)</p>
-            <div class="trainer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
+</section>

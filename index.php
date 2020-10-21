@@ -138,20 +138,7 @@
     <!-- Classes Section End -->
 
     <!-- Trainer Section Begin -->
-    <section class="trainer-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>EXPERT TRAINERS</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <?php include_once ("expert_trainers.php"); ?>
-            </div>
-        </div>
-    </section>
+    <?php include_once ("expert_trainers.php"); ?>
     <!-- Trainer Section End -->
 
     <!-- Testimonial Section Begin -->
