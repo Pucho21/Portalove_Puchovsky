@@ -12,20 +12,7 @@
     </div>
 
     <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="container">
-            <div class="logo">
-                <a href="index.php">
-                    <img src="img/logo.png" alt="">
-                </a>
-            </div>
-            <div class="nav-menu">
-                <?php include_once ("menu.php"); ?>
-                <a href="#" class="primary-btn signup-btn">Sign Up Today</a>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
+
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
@@ -192,46 +179,7 @@
     <!-- Testimonial Section End -->
 
     <!-- Register Section Begin -->
-    <section class="register-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="register-text">
-                        <div class="section-title">
-                            <h2>Register Now</h2>
-                            <p>The First 7 Day Trial Is Completely Free With The Teacher</p>
-                        </div>
-                        <form action="#" class="register-form">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <label for="name">First Name</label>
-                                    <input type="text" id="name">
-                                </div>
-                                <div class="col-lg-6">
-                                    <label for="email">Your email address</label>
-                                    <input type="text" id="email">
-                                </div>
-                                <div class="col-lg-6">
-                                    <label for="last-name">Last Name</label>
-                                    <input type="text" id="last-name">
-                                </div>
-                                <div class="col-lg-6">
-                                    <label for="mobile">Mobile No*</label>
-                                    <input type="text" id="mobile">
-                                </div>
-                            </div>
-                            <button type="submit" class="register-btn">Get Started</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="register-pic">
-                        <img src="img/register-pic.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- Register Section End -->
 
     <!-- Latest Blog Section Begin -->

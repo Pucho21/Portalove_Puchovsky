@@ -13,9 +13,7 @@ $menuItems = $db->getMenuItems();
             ?>
             <li class="nav-item">
                 <a href="<?php echo $menuItem['file_path']; ?>" class="nav-link">
-                    <div class="triangle-right"></div>
-                    <?php echo $menuItem['meno']; ?>
-                </a>
+                    <?php echo $menuItem['meno']; ?> </a>
             </li>
             <?php
         }

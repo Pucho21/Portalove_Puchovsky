@@ -18,3 +18,18 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+<header class="header-section">
+    <div class="container">
+        <div class="logo">
+            <a href="index.php">
+                <img src="img/logo.png" alt="">
+            </a>
+        </div>
+        <div class="nav-menu">
+            <?php include_once ("menu.php"); ?>
+            <a href="login.php" class="primary-btn signup-btn">Login</a>
+            <a href="register.php" class="primary-btn signup-btn">Sign Up Today</a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
