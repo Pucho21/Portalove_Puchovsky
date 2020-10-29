@@ -2,7 +2,10 @@
 <html lang="zxx">
 
 <head>
-    <?php include_once ("header.php"); ?>
+    <?php include_once ("header.php");
+    session_start();
+    //echo $_SESSION['uname'];
+    ?>
 </head>
 
 <body>

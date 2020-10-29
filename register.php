@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 
-
 if(isset($_POST['but_submit'])){
 
     $name = mysqli_real_escape_string($con,$_POST['txt_name']);
@@ -9,7 +8,6 @@ if(isset($_POST['but_submit'])){
     $email = mysqli_real_escape_string($con,$_POST['txt_email']);
     $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
     $password = mysqli_real_escape_string($con,$_POST['txt_pwd']);
-
 
     if ($uname != "" && $password != "" && $name != "" && $surname != "" && $email != ""){
 
@@ -26,39 +24,16 @@ if(isset($_POST['but_submit'])){
         }else{
             echo "Username is already taken";
         }
-
-        /*
-         $sql_query = "INSERT INTO `user` (`iduser`, `meno`, `priezvisko`, `username`, `password`, `email`)
-                      VALUES (NULL, '".$name."','".$surname."','".$uname."','".$password."','".$email."')";
-            $result = mysqli_query($con,$sql_query);
-
-
-
-        $count = $row['cntUser'];
-
-        if($count > 0){
-            $_SESSION['uname'] = $uname;
-            header('Location: index.php');
-        }else{
-            echo "Invalid registration";
-        }
-        */
     }
 }
 ?>
 <html>
 <head>
-    <title>Registration</title>
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <?php include_once "header.php"; ?>
 </head>
+<body>
 
-<body style="background-color:#000000;">
+<body>
 <div class="container">
     <form method="post" action="">
         <div id="div_login">
@@ -118,5 +93,9 @@ if(isset($_POST['but_submit'])){
 </footer>
 </body>
 </html>
+</body>
+</html>
+
+
 
 
