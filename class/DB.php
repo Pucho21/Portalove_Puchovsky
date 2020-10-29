@@ -1,9 +1,8 @@
 <?php
 
-namespace classses;
+namespace classes;
 
-class DB
-{
+class DB{
     /**
      * @var string
      */
@@ -21,24 +20,23 @@ class DB
      */
     private $dbName = "";
     /**
-     * @var
+     * @var int
      */
     private $port;
-
     /**
-     * @var
+     * @var \PDO
      */
     private $connection;
 
     /**
+     * DB constructor.
      * @param $host
      * @param $username
      * @param $password
      * @param $dbName
      * @param int $port
      */
-    public function __contruct($host, $username, $password, $dbName, $port = 3306)
-    {
+    public function __construct($host, $username, $password, $dbName, $port = 3306){
         $this->host = $host;
         $this->username = $username;
         $this->password = $password;
@@ -47,34 +45,47 @@ class DB
 
         try {
             $connection = new \PDO("mysql:host=".$this->host.";dbname=".$this->dbName.";port=".$this->port, $this->username, $this->password);
-            $connection->setAttribute(\POD::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $this->connection = $connection;
-        } catch (\PDOException $exception){
-            echo "Error while database connect" . $exception->getMessage();
+        } catch (\PDOException $exception) {
+            echo "Error while database connect " . $exception->getMessage();
         }
     }
 
     /**
-     * @return mixed
+     * @return \PDO
      */
     public function getConnection(){
         return $this->connection;
     }
 
     /**
-     * @param $connection
+     * @param $connectio
      */
-    public function setConnection($connection){
-        if($connection instanceof \PDO){
-            $this->connection = $connection;
+    public function setConnection($connectio){
+        if($connectio instanceof \PDO) {
+            $this->connection = $connectio;
         }
     }
 
+    /**
+     * @return array
+     */
     public function getMenuItems(){
         $sql = "SELECT * FROM menu ORDER BY id";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @return array
+     */
+    public function getTrainers(){
+        $sql = "SELECT * FROM trainers ORDER BY id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 }
