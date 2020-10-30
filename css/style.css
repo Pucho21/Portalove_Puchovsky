@@ -40,7 +40,7 @@ html, body {
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
-	color: #111111;
+	color: #cbcbcb;
 	font-weight: 400;
 	font-family: "Poppins", sans-serif;
 }
@@ -845,7 +845,7 @@ ul, ol {
 }
 .latest-blog-section.recommend h3 {
 	font-weight: 600;
-	color: #111111;
+	color: #cbcbcb;
 	text-transform: uppercase;
 	margin-bottom: 52px;
 }
@@ -1424,11 +1424,11 @@ ul, ol {
 }
 .bd-text .tag-share .social-share span {
 	font-size: 18px;
-	color: #111111;
+	color: #cbcbcb;
 	display: inline-block;
 }
 .bd-text .tag-share .social-share a {
-	color: #111111;
+	color: #7e7e7e;
 	display: inline-block;
 	font-size: 16px;
 	margin-left: 25px;
@@ -1452,7 +1452,7 @@ ul, ol {
 	padding-top: 35px;
 }
 .bd-text .blog-author .ba-text h5 {
-	color: #111111;
+	color: #cbcbcb;
 	font-weight: 600;
 	font-size: 20px;
 	margin-bottom: 12px;
@@ -1464,22 +1464,22 @@ ul, ol {
 .bd-text .blog-author .ba-text .bt-social a {
 	display: inline-block;
 	font-size: 14px;
-	color: #111111;
+	color: #7e7e7e;
 	margin-right: 25px;
 }
 .bd-text .leave-comment h3 {
-	color: #111111;
+	color: #cbcbcb;
 	font-weight: 600;
 	margin-bottom: 32px;
 }
 .bd-text .leave-comment form input {
 	width: 100%;
 	height: 46px;
-	border: 1px solid #ebebeb;
+	border: 1px solid #111111;
 	padding-left: 20px;
 	font-size: 16px;
 	margin-bottom: 30px;
-	color: #ebebeb;
+	color: #111111;
 }
 .bd-text .leave-comment form input:focus {
 	color: #111111;

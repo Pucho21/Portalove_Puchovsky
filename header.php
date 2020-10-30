@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Gutim Template">
@@ -27,8 +28,17 @@
         </div>
         <div class="nav-menu">
             <?php include_once ("menu.php"); ?>
-            <a href="login.php" class="primary-btn signup-btn">Login</a>
-            <a href="register.php" class="primary-btn signup-btn">Sign Up Today</a>
+
+            <?php if (isset($_SESSION['uname'])){ ?>
+                <a href="logout.php" class="primary-btn signup-btn">Logout</a>
+            <?php
+            } else {
+            ?>
+                <a href="login.php" class="primary-btn signup-btn">Login</a>
+                <a href="register.php" class="primary-btn signup-btn">Sign Up Today</a>
+            <?php
+            }
+            ?>
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>

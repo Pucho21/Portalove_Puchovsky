@@ -1,12 +1,10 @@
 <?php
-
 include "config.php";
 include_once "header.php";
 if(isset($_POST['but_submit'])){
 
     $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
-    $password = mysqli_real_escape_string($con,$_POST['txt_password']);
-
+    $password = mysqli_real_escape_string($con,$_POST['txt_pwd']);
 
     if ($uname != "" && $password != ""){
 
@@ -17,8 +15,22 @@ if(isset($_POST['but_submit'])){
         $count = $row['cntUser'];
 
         if($count > 0){
+            //SELECT CONCAT(meno,' ', priezvisko) AS 'cele_meno', email FROM `user`
+            $sql_query = "SELECT CONCAT(meno,' ', priezvisko) AS cele_meno, email FROM `user` WHERE username='".$uname."' and password='".$password."'";
+            $result = mysqli_query($con,$sql_query);
+            $row = mysqli_fetch_array($result);
+
+            $full_name = $row['cele_meno'];
+            $email = $row['email'];
+
             session_start();
+
             $_SESSION['uname'] = $uname;
+            $_SESSION['full_name'] = $full_name;
+            $_SESSION['email'] = $email;
+
+
+
             header('Location: index.php');
         }else{
             echo "Invalid username and password";
