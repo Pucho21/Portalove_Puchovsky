@@ -1,8 +1,38 @@
+<?php
+include "config.php";
+include_once('header.php');
+if(isset($_POST['blog_send'])){
+
+    $full_name = mysqli_real_escape_string($con,$_POST['name']);
+    $email = mysqli_real_escape_string($con,$_POST['email']);
+    $blog = mysqli_real_escape_string($con,$_POST['message']);
+
+    if ($full_name != "" && $email != ""){
+
+        $sql_query = "select count(*) as cntUser from user where username='".$_SESSION['uname']."' and email='".$email."'";
+        $result = mysqli_query($con,$sql_query);
+        $row = mysqli_fetch_array($result);
+
+        $count = $row['cntUser'];
+
+        if($count > 0){
+
+            $sql_query = "INSERT INTO `blog_prispevok` (`id`, `id_user`, `cele_meno`, `email`, `prispevok`)
+                                      VALUES (NULL, '".$_SESSION['user_id']."','".$full_name."','".$email."','".$blog."')";
+            $result = mysqli_query($con,$sql_query);
+            $row = mysqli_fetch_array($result);
+
+            header('Location: blog-details.php');
+        }else{
+                echo "Invalid username and password";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-    <?php include_once('header.php'); ?>
 </head>
 
 <body>
@@ -109,50 +139,33 @@
                             <a href="#"><i class="fa fa-youtube-play"></i></a>
                         </div>
                     </div>
+
                     <div class="blog-author">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="ba-pic">
-                                    <img src="img/blog/blog-posted.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="ba-text">
-                                    <h5>Shane Lynch</h5>
-                                    <p>Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                        voluptate velit esse cillum bore et dolore magna aliqua. </p>
-                                    <div class="bt-social">
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php include_once('blog_entry.php') ?>
                     </div>
+
                     <div class="leave-comment">
                         <h3>Leave A Comment</h3>
-                        <form action="#">
+                        <form method="post" action="">
                             <div class="row">
                                 <?php if(!isset($_SESSION['uname'])) { ?>
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Full Name">
+                                        <input type="text" name="name" id="name" placeholder="Full Name">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Email">
+                                        <input type="text" name="email" id="email" placeholder="Email">
                                     </div>
                                 <?php } else { ?>
                                     <div class="col-lg-6">
-                                        <input type="text" name="name" value="<?php echo $_SESSION['full_name'];?>">
+                                        <input type="text" name="name" id="name" value="<?php echo $_SESSION['full_name'];?>">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="text" name="email" value="<?php echo $_SESSION['email'];?>">
+                                        <input type="text" name="email" id="email" value="<?php echo $_SESSION['email'];?>">
                                     </div>
                                 <?php } ?>
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Messages"></textarea>
-                                    <button type="submit">Send Message</button>
+                                    <textarea placeholder="Messages" name="message" id="message" ></textarea>
+                                    <button type="submit" name="blog_send" id="blog_send">Send Message</button>
                                 </div>
                             </div>
                         </form>

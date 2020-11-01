@@ -16,15 +16,17 @@ if(isset($_POST['but_submit'])){
 
         if($count > 0){
             //SELECT CONCAT(meno,' ', priezvisko) AS 'cele_meno', email FROM `user`
-            $sql_query = "SELECT CONCAT(meno,' ', priezvisko) AS cele_meno, email FROM `user` WHERE username='".$uname."' and password='".$password."'";
+            $sql_query = "SELECT iduser, CONCAT(meno,' ', priezvisko) AS cele_meno, email FROM `user` WHERE username='".$uname."' and password='".$password."'";
             $result = mysqli_query($con,$sql_query);
             $row = mysqli_fetch_array($result);
 
+            $user_id = $row['iduser'];
             $full_name = $row['cele_meno'];
             $email = $row['email'];
 
             session_start();
 
+            $_SESSION['user_id'] = $user_id;
             $_SESSION['uname'] = $uname;
             $_SESSION['full_name'] = $full_name;
             $_SESSION['email'] = $email;

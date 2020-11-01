@@ -88,4 +88,14 @@ class DB{
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * @return array
+     */
+    public function getBlogEntry(){
+        $sql = "SELECT * FROM `blog_prispevok` INNER JOIN `user` ON blog_prispevok.id_user=user.iduser";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }
