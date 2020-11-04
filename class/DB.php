@@ -98,4 +98,24 @@ class DB{
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
+    public function editBlogEntry($id){
+        $sql = "SELECT * FROM `blog_prispevok` INNER JOIN `user` ON blog_prispevok.id_user=user.iduser WHERE id=$id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @param $id
+     */
+    public function deleteBlogEntry($id){
+        $sql = "DELETE FROM `blog_prispevok` WHERE id =$id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+    }
+
 }

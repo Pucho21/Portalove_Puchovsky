@@ -7,9 +7,7 @@ $db = new DB("localhost", "root", "", "portalove", 3306);
 $blogItems = $db->getBlogEntry();
 ?>
 
-<?php
-    foreach ($blogItems as $key => $blogItem) {}
-    ?>
+
 
 <div class="row">
     <?php
@@ -31,8 +29,9 @@ $blogItems = $db->getBlogEntry();
             <div class="bt-social">
                 <?php if(isset($_SESSION['uname'])){
                 if($blogItem['id_user'] == $_SESSION['user_id']) {?>
-                    <a href="#"><i class="fa fa-edit"></i></a>
-                    <a href="#"><i class="fa fa-remove"></i></a>
+
+                    <?php echo "<a href='edit_blogEntry.php?id=".$blogItem['id']."'"; ?><i class='fa fa-edit'</i></a>
+                    <?php echo "<a href='delete_blogEntry.php?id=".$blogItem['id']."'"; ?><i class='fa fa-remove'</i></a>
 
                 <?php }
                 }?>
