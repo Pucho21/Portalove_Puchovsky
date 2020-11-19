@@ -12,7 +12,7 @@ if(isset($_POST['blog_send'])) {
 
     $entry = mysqli_real_escape_string($con, $_POST['message']);
     if($entry != ""){
-        $sql_query = "UPDATE `blog_prispevok` SET prispevok = '".$entry."'";
+        $sql_query = "UPDATE `blog_prispevok` SET prispevok = '".$entry."' WHERE id = '".$_GET['id']."'";
         $result = mysqli_query($con,$sql_query);
 
         header('Location: blog-details.php');

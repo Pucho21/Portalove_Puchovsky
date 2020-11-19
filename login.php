@@ -31,8 +31,6 @@ if(isset($_POST['but_submit'])){
             $_SESSION['full_name'] = $full_name;
             $_SESSION['email'] = $email;
 
-
-
             header('Location: index.php');
         }else{
             echo "Invalid username and password";
