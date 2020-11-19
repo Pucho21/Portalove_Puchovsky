@@ -117,5 +117,4 @@ class DB{
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
     }
-
 }
